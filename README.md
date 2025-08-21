@@ -1,2 +1,2 @@
 # voip-contact-center-asterisk-freeswitch-kurento
-Next-gen WebRTC Contact Center with Asterisk, FreeSWITCH &amp; Kurento
+Simulate a small contact center environment to monitor call flows, IVR, and audio conferencing.
