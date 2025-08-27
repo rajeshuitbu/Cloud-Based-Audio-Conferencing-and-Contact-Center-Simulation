@@ -41,10 +41,10 @@ Files & Configuration:
 
 Asterisk configuration files (sip.conf, extensions.conf) for this scenario are included in the project folder.
 
-Project 2: Audio Conferencing with Conference ID 600
+**Project 2: Audio Conferencing with Conference ID 600**
 
-Description:
-This project demonstrates a multi-party audio conference using Asterisk ConfBridge:
+**Description:
+This project demonstrates a multi-party audio conference using Asterisk ConfBridge:**
 
 Conference ID 600: Normal users join here.
 
