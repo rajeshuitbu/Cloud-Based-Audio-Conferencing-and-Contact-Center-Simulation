@@ -1,0 +1,56 @@
+[general]
+static=yes
+writeprotect=no
+clearglobalvars=no
+
+[globals]
+; You can define global variables here if needed
+
+;======================
+; Internal Dialplan
+;======================
+[internal]
+
+; Direct calling between users
+exten => 2001,1,Dial(PJSIP/2001,20)
+ same => n,Voicemail(2001@default,u)
+ same => n,Hangup()
+
+exten => 2002,1,Dial(PJSIP/2002,20)
+ same => n,Voicemail(2002@default,u)
+ same => n,Hangup()
+
+exten => 2003,1,Dial(PJSIP/2003,20)
+ same => n,Voicemail(2003@default,u)
+ same => n,Hangup()
+
+;======================
+; IVR Menu (Dial 100)
+;======================
+exten => 100,1,Answer()
+ same => n,Playback(custom/welcome)       ; Play welcome prompt (record your own file)
+ same => n,Background(custom/ivr-menu)    ; IVR menu prompt
+ same => n,WaitExten(5)
+
+; Option 1 → Department/User 2001
+exten => 1,1,Dial(PJSIP/2001,20)
+ same => n,Playback(vm-nobodyavail)
+ same => n,Hangup()
+
+; Option 2 → Department/User 2002
+exten => 2,1,Dial(PJSIP/2002,20)
+ same => n,Playback(vm-nobodyavail)
+ same => n,Hangup()
+
+; Option 3 → Department/User 2003
+exten => 3,1,Dial(PJSIP/2003,20)
+ same => n,Playback(vm-nobodyavail)
+ same => n,Hangup()
+
+; If no input or invalid input
+exten => i,1,Playback(pbx-invalid)   ; Invalid option
+ same => n,Goto(100,1)
+
+exten => t,1,Playback(vm-goodbye)    ; Timeout
+ same => n,Hangup()
+
