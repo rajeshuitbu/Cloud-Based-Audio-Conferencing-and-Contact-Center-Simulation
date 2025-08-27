@@ -1,21 +1,23 @@
-# Cloud-Based-Audio-Conferencing-and-Contact-Center-Simulation
-VoIP & Audio Conferencing Projects
-Project 1: Basic VoIP Call Between Zoiper and JIST
+# VoIP & Audio Conferencing Projects
 
-Description:
-This project demonstrates a simple VoIP call setup using Asterisk PBX. A user can make a call from Zoiper softphone to a JIST client.
+This repository contains two VoIP/Asterisk-based projects demonstrating basic calling and multi-party audio conferencing.
 
-Steps to Install and Setup:
+---
 
-Install Asterisk (on Linux):
+## Project 1: Basic VoIP Call Between Zoiper and JIST
 
-sudo apt update
-sudo apt install -y asterisk
-sudo systemctl start asterisk
-sudo systemctl enable asterisk
+**Description:**  
+This project demonstrates a simple VoIP call setup using Asterisk PBX. A user can make a call from **Zoiper softphone** to a **JIST client**.
 
+**Installation & Setup:**
 
-Install Zoiper (Softphone):
+1. **Install Asterisk (Linux):**
+   ```bash
+   sudo apt update
+   sudo apt install -y asterisk
+   sudo systemctl start asterisk
+   sudo systemctl enable asterisk
+Install Zoiper Softphone:
 
 Download Zoiper from https://www.zoiper.com
 
@@ -23,50 +25,50 @@ Install and configure with the SIP account created in Asterisk.
 
 Install JIST Client:
 
-Follow the JIST installation instructions from its official repository or package.
+Follow official JIST installation instructions.
 
 Configure SIP account with Asterisk credentials.
 
 Make a Call:
 
-Open Zoiper and register with your SIP account.
+Open Zoiper and register using your SIP account.
 
 Dial the SIP address or extension of the JIST client.
 
-Verify the call connects successfully.
+Ensure the call connects successfully.
 
-Folder/Files:
+Files & Configuration:
 
-Basic Asterisk configuration files (sip.conf, extensions.conf) for this scenario are provided in the project folder.
+Asterisk configuration files (sip.conf, extensions.conf) for this scenario are included in the project folder.
 
 Project 2: Audio Conferencing with Conference ID 600
 
 Description:
-This project demonstrates a multi-party conference setup in Asterisk.
+This project demonstrates a multi-party audio conference using Asterisk ConfBridge:
 
 Conference ID 600: Normal users join here.
 
 Conference ID 601: Admin joins here.
 
-Steps to Install and Setup:
+Installation & Setup:
 
 Install Asterisk:
-(Follow same steps as Project 1)
+(Same steps as Project 1)
 
 Configure Conference in Asterisk:
 
-Use confbridge.conf to define rooms 600 and 601.
+Edit confbridge.conf to define rooms 600 (normal users) and 601 (admin).
 
-Assign normal users to 600 and admin user to 601.
+Ensure proper roles and privileges are set for each room.
 
-Join Conference:
+Join the Conference:
 
 Normal user dials extension 600.
 
 Admin dials extension 601.
 
-Verify both users can communicate appropriately.
+Verify communication between users and admin.
 
 Additional Information:
 
-More detailed configurations, dialplans, and scripts can be found in the conf_with_ID_600 folder.
+Detailed configurations, dialplans, and scripts are available in the conf_with_ID_600 folder.
